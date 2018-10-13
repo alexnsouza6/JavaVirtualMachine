@@ -35,13 +35,21 @@ ClassLoader::ClassLoader(FILE * fp) {
  */
 
 ClassLoader::~ClassLoader() {
+    
+    for(int i = 0; i < this->methodsCounter; i++) {
+        //free(this->methods[i].attributes);
+        std::cout << "hey" << std::endl;
+    }
+    delete[] methods;
+    
+    free(this->methods);
 
     for(int i = 0; i < this->getConstCount()-1; i++) {
         auto a = this->constantPool[i]->UTF8.bytes;
         free(a);
     }
     
-    for(auto a : constantPool) {
+    for(auto a : this->constantPool) {
         free(a);
     }
 }
@@ -230,8 +238,10 @@ void ClassLoader::setMethodCount(FILE * fp) {
 }
 
 void ClassLoader::setMethods(FILE * fp) {
-    //ByteReader<typeof(methods)> bReader;
-    //methods = bReader.byteCatch(fp);
+    this->methods = (MethodInfo *)calloc(this->methodsCounter,sizeof(MethodInfo));
+    for(int i = 0; i < this->getMethoCount(); i++) {
+        methods[i].read(fp);
+    }
 }
 
 void ClassLoader::setAttributesCount(FILE * fp) {
