@@ -3,7 +3,6 @@
 
 MethodInfo::~MethodInfo() {
     free(this->attributes);
-    std::cout << "DESALOQUEI" << std::endl;
 }
 
 void MethodInfo::read(FILE * fp) {
@@ -16,6 +15,4 @@ void MethodInfo::read(FILE * fp) {
 
     //TODO: Settar isso daqui.
     this->attributes = (AttributeInfo *)calloc(attributes_count, sizeof(AttributeInfo)); 
-    
-
 }

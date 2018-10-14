@@ -74,7 +74,7 @@ class ClassLoader {
       /* The fields table includes only those fields that are declared by this class or interface. 
       It does not include items representing fields that are 
       inherited from superclasses or superinterfaces. */
-      std::vector<FieldInfo *> fields;
+      //std::vector<FieldsInfo *> fields;
 
       /* The value of the methods_count item gives
        the number of method_info structures in the methods table. */
@@ -83,7 +83,7 @@ class ClassLoader {
       /*  The method_info structures represent all methods declared by this class or interface type,
        including instance methods, class methods, instance initialization methods, 
        and any class or interface initialization method.  */
-      MethodInfo * methods;
+      std::vector<MethodInfo *> methods;
 
       /*The value of the attributes_count item gives the number
        of attributes in the attributes table of this class. */
