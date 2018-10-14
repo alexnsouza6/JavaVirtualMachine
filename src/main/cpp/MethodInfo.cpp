@@ -15,4 +15,5 @@ void MethodInfo::read(FILE * fp) {
 
     //TODO: Settar isso daqui.
     this->attributes = (AttributeInfo *)calloc(attributes_count, sizeof(AttributeInfo)); 
+
 }

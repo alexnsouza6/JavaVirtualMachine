@@ -1,3 +1,6 @@
+#ifndef BLABLABLA
+#define BLABLABLA
+
 #include "../hpp/AttributeInfo.hpp"
 
 
@@ -81,3 +84,5 @@ AttributeInfo AttributeInfo::get_attribute_info(FILE * fp, AttributeInfo attribu
     std::string attribute_name = "1";
     return attribute_info;
 }
+
+#endif
